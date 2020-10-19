@@ -213,8 +213,11 @@ $(document).ready(function(){
             var totalOccupants = maxOccupantsPerFloor * numFloors;
             var numElevators = Math.ceil(totalOccupants / 1000);
             var numColumns = Math.ceil(numFloors / 20); 
-            
+            if (numColumns === 0){
+                totalElevators = 0 ;
+            }else{
             totalElevators = Math.ceil(numElevators / numColumns) * numColumns;
+            }
         }
         else if (buildingType === "Hybrid")
         {
